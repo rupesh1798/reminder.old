@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>reminder</title>
+    {% load staticfiles %}
+  <link href="{% static 'reminder/reminder.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="form-style-6">
+  {% if is_registered %}
+  <h2>  form has been submitted you will get a reminder</h2>
+  <script>alert("{{user_obj.name}} will get a reminder at {{user_obj.time }} with message '{{ user_obj.message }}'")</script>
+
+    {% else %}
+
+<!--    <form action="" method="post">
+    {% csrf_token %}
+   {{ form }}
+    <input type="submit" value="Submit">
+    </form>
+{% endif %}
+   <h1>Set Reminder</h1>
+    <form action="result" method="post">
+      <input type="text" name="name" placeholder="Your Name" />
+      <input type="datetime-local" name="datetime" placeholder="Enter Date and Time">
+      <textarea name="message" placeholder="Type your Message"></textarea>
+      {% csrf_token %}
+      <input type="submit" value="REMINDE ME" />
+    </form> -->
+    <h1>Set Reminder</h1>
+    <form action="" method="post">
+      <input type="text" name="name" placeholder="Your Name" />
+
+      <input type="datetime-local" name="time" placeholder="Enter Date and Time">
+
+      <input type="text" name="phone_number">
+
+      <input type="text" name ="message" placeholder="Type your Message">
+      
+      {% csrf_token %}
+      <input type="submit" value="REMINDE ME" />
+      </form>
+  </div>
+</body>
+</html>
